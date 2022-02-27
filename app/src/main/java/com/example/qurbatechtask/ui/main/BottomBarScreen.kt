@@ -23,7 +23,7 @@ sealed class BottomBarScreen(
 
     object Groups : BottomBarScreen(
         route = "groups",
-        icon = R.drawable.ic_group
+        icon = R.drawable.ic_groups
     )
 
     object Profile : BottomBarScreen(
