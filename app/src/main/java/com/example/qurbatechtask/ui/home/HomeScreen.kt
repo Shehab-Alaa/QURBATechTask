@@ -19,6 +19,11 @@ import com.example.qurbatechtask.data.model.Post
 
 @Composable
 fun HomeScreen() {
+    /*LazyColumn {
+        repeat(5) {
+            item { AnimatedShimmer() }
+        }
+    }*/
     HomeItems(items = Post.getDummyPosts())
 }
 
