@@ -10,7 +10,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.qurbatechtask.R
@@ -32,35 +34,47 @@ fun HomeItem(post: Post){
             )
             Column(modifier = Modifier.padding(6.dp)) {
                 Row(){
-                    Text(post.profileName.toString())
+                    Text(post.profileName.toString(),
+                        color = colorResource(id = R.color.app_text_color),fontWeight = FontWeight.Bold)
                     Icon(painter = painterResource(id = post.icon), contentDescription = null,
-                        modifier = Modifier.padding(start = 6.dp))
+                        modifier = Modifier.padding(start = 6.dp), tint = colorResource(id = R.color.blue))
                     Icon(painter = painterResource(id = R.drawable.ic_options), contentDescription = null,
-                        modifier = Modifier.padding(start = 100.dp))
+                        modifier = Modifier.padding(start = 160.dp), tint = colorResource(id = R.color.blue))
+
                 }
-                Text(post.date.toString())
+                Text(post.date.toString(),color = colorResource(id = R.color.grey))
             }
         }
-        Text(post.description.toString(),modifier = Modifier.padding(10.dp))
+        Text(post.description.toString(),modifier = Modifier.padding(16.dp),color = colorResource(id = R.color.app_text_color))
         Image(painter = painterResource(id = post.image),contentDescription = null,
             contentScale = ContentScale.FillWidth, modifier = Modifier.fillMaxWidth())
-        Row(modifier = Modifier.fillMaxWidth().padding(10.dp)){
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp) ,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
             Box(contentAlignment = Alignment.CenterStart) {
                 Row {
-                    Text(post.likes.toString())
-                    Icon(painter = painterResource(id = R.drawable.ic_like), contentDescription = null)
+                    Text(post.likes.toString(),color = colorResource(id = R.color.app_text_color),
+                        fontWeight = FontWeight.Bold)
+                    Icon(painter = painterResource(id = R.drawable.ic_like), contentDescription = null,
+                         modifier = Modifier.padding(start = 4.dp), tint = colorResource(id = R.color.blue))
                 }
             }
             Box() {
                 Row {
-                    Text(post.comments.toString())
-                    Icon(painter = painterResource(id = R.drawable.ic_comment), contentDescription = null)
+                    Text(post.comments.toString(),color = colorResource(id = R.color.app_text_color)
+                        ,fontWeight = FontWeight.Bold)
+                    Icon(painter = painterResource(id = R.drawable.ic_comment), contentDescription = null,
+                        modifier = Modifier.padding(start = 4.dp), tint = colorResource(id = R.color.blue))
                 }
             }
             Box(contentAlignment = Alignment.CenterEnd) {
                 Row {
-                    Text(post.shares.toString())
-                    Icon(painter = painterResource(id = R.drawable.ic_share), contentDescription = null)
+                    Text(post.shares.toString(),color = colorResource(id = R.color.app_text_color)
+                        ,fontWeight = FontWeight.Bold)
+                    Icon(painter = painterResource(id = R.drawable.ic_share), contentDescription = null,
+                        modifier = Modifier.padding(start = 4.dp), tint = colorResource(id = R.color.blue))
                 }
             }
         }
